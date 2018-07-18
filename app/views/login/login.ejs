@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>
+      <%=Titulo%>
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon .ico">
+    <link rel="stylesheet" type="text/css" href="styles/estilo.css">
+  </head>
+  <body>
+    <main class="fundo_login">
+      <div class="style_login">
+ 
+          <div lang="titulo_container">
+            <h1> Painel representante de sala JIIF </h1>
+          </div>  
+          <form action="/logar/user" method="post" >
+            <div  class="container-input">
+              <label>Usuário:</label>
+              <input type="text" name="user" placeholder="Digite seu usuário">
+            </div>
+            <div  class="container-input">
+              <label>Registro Estudante(RA):</label>
+              <input type="number" name="Ra" placeholder="Digite sue RA">
+            </div>
+             <div  class="container-input">
+              <label>Organização:</label>
+              <select name="tipo_acesso">
+                <option>Selecione uma ocupação</option>
+                <option>Arbitragem</option>
+                <option>Lider de sala</option>
+              </select>
+            </div>
+          <div class="container-input">
+            <input type="submit" value="Acessar">
+          </div>
+          <br>
+          <br>
+            <div class="validação">
+            <%for (var i = 0; i < validacao.length; i++) {%>
+            <ul >
+              <li style="background:<%=color%>;color:<%=color_font%>;" ><%=validacao[i].msg %></li>
+            </ul>
+            <%}%>
+          </div>
+        </form>
+           
+      </div>
+      </main>
+  </body>
+</html>

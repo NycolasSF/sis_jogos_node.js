@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta>
+    <title>JIIF Notícias</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon .ico">
+    <link rel="stylesheet" href="styles/noticias.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header id="cabecalho">
+      <div class="mobile" id="menu">
+        <img src="img/icon_menu.png">
+      </div>
+      <div class="logo">
+          <img src="img/logo.png">
+      </div>
+        <nav id="ul_menu">
+          <ul >
+            <li><a href="#cabecalho">HOME</a></li>
+            <li><a href="#titulo-todas-noticias">NOTICIAS</a></li>
+            <li><a href="#boletim">BOLETIM</a></li>
+          </ul>
+        </nav>
+  	</header>
+    <main>
+      <div class="banner">
+       <section>
+       <div class="slideSHOW animated pulse">
+            <div class="mySlides animated pulse">
+              <!-- TAMANHO DA IMAGEM:640X423 -->
+              <img src="img/noticia-comp.jpg" >
+              <div class="text">
+                <h1 id="titulo-noticia">Primeiro Triatlon de Programação</h1>
+                <p id="desc-noticia">Primeira competição de programação do JIIF.</p>
+              </div>
+            </div><!--fim-slide-noticias-->
+            <div class="mySlides animated pulse">
+              <img src="img/noticia-fliperama.jpg">
+              <div class="text">
+                <h1 id="titulo-noticia">Campeonato de FLIPERAMA!</h1>
+                <p id="desc-noticia">Intensas batalhas de jogos das antigas o esperam.</p>
+              </div>
+            </div><!--fim-slide-noticias-->
+            <div class="mySlides animated pulse">
+              <img src="img/noticia-math.jpg">
+              <div class="text">
+                <h1 id="titulo-noticia">Gincana de Matemática</h1>
+                <p id="desc-noticia">A primeira edição da Gincana de Matemática ocorrerá  16/06.<br> Não fique parado peça logo para seu líder o inscrever!</p>
+              </div>
+            </div><!--fim-slide-noticias-->
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+           </div><!--fim-dots-->
+        </div>
+        </section>
+        <section>
+      <!--boletim-RECENTE-->
+                <div class="mySlides02 animated fadeIn">
+                  <div class="card">
+                    <h1>Últimos Boletim</h1>
+                      <div class="info-boletim content-info">
+                        <a href="arquivos/manual_lideres.pdf" download><i class="material-icons">attachment</i>Manual Sistema<i class="material-icons boletim-recentes-dowloand">file_download</i></a>
+                        <a href="arquivos/chaveamento_jiif.pdf" download><i class="material-icons">attachment</i>Chaveamento Geral<i class="material-icons boletim-recentes-dowloand">file_download</i></a>
+                        <a href="arquivos/regulamento_jiif" download><i class="material-icons">attachment</i>Regulamento Modalidades<i class="material-icons boletim-recentes-dowloand">file_download</i></a>
+                      </div>
+                  </div> <!--fim-card-->
+          </div><!--fim-boletim-RECENTES-->
+          </section>
+        </div>
+      <h1 id="titulo-todas-noticias" class="titulo-todas-noticias">TODAS NOTICIAS</h1>
+          <div id="todas-noticias" >
+            <div class="card-todasNoti">
+              <!-- JS -->
+              <% var tamanho_banco = noticias.length; %>
+              <% if(tamanho_banco > 0) { %>
+              <% for(var i = 0; i < tamanho_banco; i++) { %>
+              <div class="contet-card-Tnoticias">
+                <h2 id="titulo-noticias"><%= noticias[i].titulo_noticia %></h2>
+                <p class="date-noticia"><i class="large material-icons">date_range</i><%= noticias[i].data_noticia %></p>
+                <img src="<%= noticias[i].img_noticia %>"></img>
+                <video  control poster="<%= noticias[i].img_poster_noticia %>">
+                  <source src="<%= noticias[i].video_noticia %>" type="video/mp4">
+                </video>
+                <div class="content-info">
+                    <p><%= noticias[i].desc_noticia %></p>
+                </div>
+                <div class="share-coment">
+                  <div class="share">
+                    <!-- AddToAny BEGIN -->
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                    <a class="a2a_button_twitter"></a>
+                    <a class="a2a_button_whatsapp"></a>
+                    </div>
+                    <script>
+                    var a2a_config = a2a_config || {};
+                    a2a_config.linkname = "JIIF";
+                    a2a_config.locale = "pt-BR";
+                    </script>
+                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                    <!-- AddToAny END -->
+                  </div>
+                  <script type="text/javascript">
+                  function pegarID(button, param) {
+                      location.href = button.id+"?id_noticia="+param;
+                  }
+                  </script>
+                  <div class="curtidas">
+                      <button type="button"  class="btn-acao" id="curti" onclick="pegarID(this, <%= noticias[i].id_noticia %>)">
+                        <i class="medium material-icons">thumb_up</i>
+                        <p><%= noticias[i].curtidas_noticias %> - Curti!</p>
+                      </button>
+                      <button type="button"  class="btn-acao" id="Ncurti" onclick="pegarID(this, <%= noticias[i].id_noticia %>)">
+                        <i class="medium material-icons">thumb_down</i>
+                        <p><%= noticias[i].descurtidas_noticias%> - Não Curti</p>
+                      </button>
+                  </div>
+                </div>
+              </div> <!--fim-card-->
+              <% } %><!--_for-->
+              <% } %><!--_if-->
+              <!-- FIM JS -->
+            </div><!--fim-container-->
+
+          <!-- widgets -->
+            <aside class="widgets">
+              <iframe class="iframe-facebook" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fjiifms%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="400px" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>            </div>
+          </aside >
+      </section>
+<!--BOLETIM-->
+      <section id="boletim">
+        <br>
+        <h1>BOLETIM</h1>
+        <br>
+        <div class="info-boletim">
+          <a href="arquivos/manual_lideres.pdf" download><i class="material-icons">attachment</i>Manual Sistema<i class="material-icons boletim-recentes-dowloand">file_download</i></a>
+          <a href="arquivos/chaveamento_jiif.pdf" download><i class="material-icons">attachment</i>Chaveamento Geral<i class="material-icons boletim-recentes-dowloand">file_download</i></a>
+          <a href="arquivos/regulamento_jiif.pdf" download><i class="material-icons">attachment</i>Regulamento Modalidades<i class="material-icons boletim-recentes-dowloand">file_download</i></a>
+        </div>
+      </div>
+      </section>
+      <footer id="rodape">
+          <div>
+             <a class="acesso-restrito" href="/acessar">Acesso Painel Administrativo</a>
+          </div>
+          <div class="text_logo">
+            <img src="img/logo.svg">
+            <div class="text_logo-2">
+                <h1>Jogos Internos Interclasses do instituto federal do Campus Dourados</h1>
+            </div>
+          </div>
+          <p>&copy Comissão de TI</p>
+      </footer>
+    </main>
+    <script type="text/javascript" src="js/effect-roll.js"></script>
+  <script type="text/javascript" src="js/slidesNOTICIAS.js"></script>
+  <script type="text/javascript" src='js/btnMenu.js'></script>
+  </body>
+</html>

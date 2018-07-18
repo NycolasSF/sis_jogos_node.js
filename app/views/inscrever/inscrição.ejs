@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title><%=Titulo%></title>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon .ico">
+    <link rel="stylesheet" type="text/css" href="styles/estilo.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo_principal">
+        <img src="img/logo.png">
+      </div>
+      <div class="indentificação_login">
+         <img id="opener" src="img/sair.png">
+      </div>
+    </header>
+    <main>
+       <div class="invisivel">
+       <div id="dialog-confirm"  title=" Turma <%=lider_turma%> Encerrar sessão">
+    <p><%=Lider%> , Deseja finalizar sua sessão ?</p>
+    </div>
+    <div id="dialog-message" title="Finalizar solicitação">
+      <p>
+        Solicitação  Cancelada !!!
+      </p>
+    </div>
+    </div>
+      <section>
+         <div class="menu_icon">
+           <img src="img/icon_menu.png" id="menu">
+          </div>
+        <div class="menu" id="ul_menu">
+          <nav>
+              <ul>
+                <li><a href="/dashboard">Páginal inicial</a></li>
+                 <li><a href="/Entrar/recurso">Solicitar revisão de partida</a></li>
+              </ul>
+          </nav>
+      </div>
+    </section>
+  
+    <section class="Atletas" id="Atletas">
+      <div> 
+          <div class="titulo_container">
+            <h1>Efetuar inscrição atleta</h1>
+         </div>
+           <form action="salvar/altleta" method="post">
+             <div class="container-input">
+               <label>Nome Aluno:</label>
+               <input type="text" name="nome_aluno" placeholder="Digite informações">
+             </div>
+             <div class="container-input">
+               <label>RA:</label>
+               <input type="number" name="RA" placeholder="Digite informações">
+             </div>
+             <div class="container-input">
+               <label>Email Atleta:</label>
+               <input type="text" name="email" placeholder="Digite informações">
+             </div>
+             <div class="container-input" >
+               <label>Turma Aluno:</label>
+               <select name="id_turma">
+                 <option value="<%=id_turma%>"><%=lider_turma%></option>
+               </select>
+             </div>
+             <div class="container-input">
+               <label>Lider Sala:</label>
+               <select name="id_lider">
+                 <option  value="<%=id_lider%>"> <%=Lider%></option>
+               </select>
+             </div>
+             <div class="container-input">
+               <label>Modalidade:</label>
+               <select name="modalidade">
+                <%for(var i = 0; i< modalidades_disponiveis.length;i++){%>
+                   <option value="<%=modalidades_disponiveis[i].id_modalidade%>" > <%=modalidades_disponiveis[i].nome_modalidade%></option>
+                 <%}%>  
+               </select>
+             </div>
+             <div class="btn_adicionais">
+               <div class="container-input">
+               <input disabled  type="submit" value="Realizar inscrição">
+             </div>
+             <div class="container-input">
+               <input type="reset" value="Limpar">
+             </div>
+             </div> 
+           </form>
+            <div class="validação">
+            <%for (var i = 0; i < validacao.length; i++) {%>
+            <ul >
+              <li><%=validacao[i].msg %></li>
+            </ul>
+            <%}%>
+          </div>
+         </div> 
+        <div class="titulo_container">
+            <h1>Altletas registrado nas modalidades</h1>
+         </div>
+         <div>
+            <%if(dados.length>0){%>
+              <table>
+            <tr>
+              <th>Aluno</th>
+              <th>RA</th>
+              <th>Turma</th>
+              <th>Modalidade</th>
+            </tr>
+            <%for(var i = 0; i<dados.length;i++){%>
+            <tr>
+              <td><%=dados[i].nome_aluno%></td>
+              <td><%=dados[i].RA%></td>
+              <td><%=dados[i].nome_turma%></td>
+              <td><%=dados[i].nome_modalidade%></td>
+            </tr>
+            <%}%>
+          </table>  
+          <%}%>
+           <%if(dados.length<=0){%>
+             <div class="mensagem_valida">
+               <a>Não há altletas cadastrados</a>
+             </div>
+            <%}%>
+         </div>
+    </section>
+    </main>
+    
+     <script type="text/javascript" src="js/exibição.js"></script>
+     <script type="text/javascript" src="js/funções.js"></script>
+  </body>
+</html>

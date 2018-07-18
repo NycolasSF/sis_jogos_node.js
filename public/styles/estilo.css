@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+*{
+	padding:0;
+	margin:0;
+	font-family: 'Roboto', sans-serif;
+	 box-sizing: border-box;
+	 outline:none;
+}
+:root{
+	--color-font:#fff;
+	--color-font_1:#598959;
+	--color-font_2:#212121;
+	--color-header: #598959;
+	--color-container-dados:#598959;
+}
+header{
+	width:90vw;
+	margin:auto;
+	display:flex;
+	justify-content:space-between;
+}
+ul{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+.noticia{
+	display:flex;
+	flex-direction:column;
+	padding:20px 20px;
+
+}
+.foto_noticias{
+	border-right:1px solid var(--color-header);
+}
+.noticias{
+	display:flex;	
+	box-shadow:1px 1px 1px 1px #ededed;
+}
+.noticias img{
+	max-width:4rem;
+}
+.noticias  p,span{
+	font-size:0.5rem;
+	text-align:justify;
+}
+.noticias span{
+	text-align:justify;
+	line-height:1rem;
+	font-size:0.1rem;
+	font-weight:bold;
+}
+.noticias div{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+	padding:5px;
+
+}
+.noticias h3{
+	font-size:0.8rem;
+	font-weight:inherit;
+	color:var(--color-header);
+	line-height:1rem;
+}
+.logo_principal img{
+	max-width:4rem;
+}
+.indentificação_login,.btn_form_recurso{
+	display:flex;
+}
+.menu{
+	display:none;
+	background:var(--color-header);
+}
+.menu nav ul,.dados{
+	display:flex;
+	flex-direction:column;
+}
+.menu nav li{
+	border-bottom:1px solid var(--color-font);
+	padding:10px 15px;
+}
+.menu nav li a{
+	color:var(--color-font);
+	font-size:0.8rem;
+}
+.painel,.Atletas,.disputas,.recursos,.boletim,.modalidades{
+	position:relative;
+	top:10px;
+	width:100vw;
+	margin:auto;
+	padding:20px 20px;
+}
+
+.modalidades{
+	padding:2px 2px;
+}
+.disputas,.boletim,.modalidades,.invisivel{
+	display:none;
+}
+
+#painel .dados_painel{
+	display:flex;
+	flex-direction:column;
+	justify-content:flex-start;
+	padding:20px 20px;
+}
+#painel .dados_painel div{
+	border-bottom:1px solid var(--color-font);
+	padding:0.01rem 1rem;
+	background:  var(--color-header);
+	border-right:1px solid var(--color-font);
+}
+#painel h1,#Atletas h1,#disputas h1,#recursos h1,.fundo_login h1,.boletim h1,.modalidades h1{
+	border-left:2px solid var(--color-font_1);
+	font-weight:inherit;
+	font-size:0.8rem;
+	padding:10px 10px;
+	color:var(--color-font_1);
+
+}
+#painel h2,#Atletas h2,#disputas h2,#recursos h2,.fundo_login h2,.boletim h2,.modalidades h2{	
+	font-weight:inherit;
+	font-size:0.8rem;
+	padding:8px 5px;
+	color:var(--color-font);
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th{
+	color:var(--color-header);
+}
+th, td {
+	font-size:0.5rem;
+    text-align: center;
+    padding: 0.6rem;
+    font-weight:inherit;	
+}
+
+tr:nth-child(even) {
+	 color:var(--color-font);
+    background-color: var(--color-header);
+ }
+.titulo_container{
+	padding:10px 0px;
+}
+.btn_adicionais{
+	display:flex;
+	padding:20px 0px;
+}
+	
+.disputas_registrada{
+	padding:10px 10px;
+	box-shadow: 1px 1px 1px 1px #eee;
+}
+.disputas_registrada li{
+	font-size:0.7rem;
+	color:var(--color-font_2);
+	padding:0.4rem;
+}
+.container-input{
+	display:flex;
+	flex-direction:column;
+}
+label{
+	line-height:2rem;
+	font-size:0.8rem;
+}
+input,select{
+	padding:0.35rem;
+	outline:none;
+}
+textarea{
+	outline:none;
+	height:20vh;
+}
+.btn_adicionais input[type='submit'],.btn_adicionais input[type='reset']{
+	background:var(--color-header);
+	border:none;
+	font-size:0.6rem;
+	color:var(--color-font);
+	padding:0.5rem 1rem;
+}
+.btn_adicionais input[type='reset']{
+	background:#931515;
+}
+.menu_icon {
+	align-items:center;
+	display:flex;
+	background:var(--color-header);
+	padding:5px 5px;
+}
+.menu_icon img{
+	max-width:4rem;
+}
+.fundo_login{
+	display:flex;
+	 background: url(../img/banner.png)no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:100vh;
+}
+.style_login{
+	width:80%;
+	box-shadow:1px 1px 1px 1px #eee;	
+	background:var(--color-font);
+	padding:20px 10px;
+}
+.style_login form{
+	padding:20px 20px;
+}
+.style_login input{
+	padding:0.3rem;
+}
+.style_login input[type='submit']{
+	background:var(--color-header);
+	border:none;
+	font-size:1rem;
+	color:var(--color-font);
+	padding:0.4rem 1rem;
+	position:relative;
+	top:1rem;
+}
+.validação li{
+	font-size:0.6rem;
+	color:red;
+	list-style:none;
+	background:rgba(255, 0, 0, 0.2);
+	padding:10px 15px;
+	border-bottom:1px solid #fff;
+}
+.mensagem_valida,.indentificação_login{
+	align-items:center;
+	display:flex;
+	justify-content:center;
+}
+.indentificação_login img{
+	cursor:pointer;
+	max-width:6rem;
+}
+.mensagem_valida a{
+	font-size:0.8rem;
+	text-align:center;
+	color:var(--color-header);
+	border:none;
+	line-height:4rem;
+}
+button{
+	background:var(--color-header);
+	color:var(--color-font);
+	border:none;
+	font-size:0.8rem;
+	padding:0.4rem 1rem;
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    height:15%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+@media screen and (min-width:640px){
+header{
+	width:80vw;
+}
+.menu{
+	display:block;
+	padding:1rem;
+}
+.menu nav ul,.dados{
+	cursor:pointer;
+	align-items:center;
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+}
+.menu nav li{
+	border:none;
+	padding:0px 15px;
+}
+.menu nav li a{
+	font-size:1rem;
+}
+.logo_principal img{
+	max-width:8rem;
+}
+.menu_icon{
+	display:none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th{
+	color:var(--color-header);
+}
+th, td {
+	font-size:1rem;
+    text-align: center;
+    padding: 0.6rem;
+    font-weight:inherit;	
+}
+
+tr:nth-child(even) {
+	 color:var(--color-font);
+    background-color: var(--color-header);
+ }
+#painel .dados_painel{
+	display:flex;
+	flex-direction:row;
+	justify-content:flex-start;
+	padding:20px 20px;
+}
+.painel,.Atletas,.disputas,.recursos,.boletim,.modalidades{
+	position:relative;
+	top:20px;
+	width:80vw;
+	margin:auto;
+	padding:20px 20px;
+}
+#painel .dados_painel div{
+	border:none;
+	padding:0.2rem 1rem;
+	background:  var(--color-header);
+	border-right:1px solid var(--color-font);
+}
+#painel h1,#Atletas h1,#disputas h1,#recurso h1,.fundo_login h1,#recursos h1,.boletim h1,.modalidades h1{
+	border-left:2px solid var(--color-font_1);
+	font-weight:inherit;
+	font-size:1.1rem;
+	padding:10px 10px;
+	color:var(--color-font_1);
+
+}
+#painel h2,#Atletas h2,#disputas h2,#recurso h2,.fundo_login h2,#recursos h2,.boletim h2,.modalidades h2{	
+	font-weight:inherit;
+	font-size:1rem;
+	padding:10px 10px;
+	color:var(--color-font);
+}
+.disputas_registrada li{
+	font-size:1rem;
+	color:var(--color-font_2);
+	padding:0.4rem;
+}
+.disputas_registrada{
+	padding:20px 20px;
+	box-shadow: 1px 1px 1px 1px #eee;
+}
+label{
+	font-size:1rem;
+	line-height:2rem;
+}
+input,select{
+	padding:0.50rem;
+	outline:none;
+}
+textarea{
+	outline:none;
+	height:30vh;
+}
+.btn_adicionais input[type='submit'],.btn_adicionais input[type='reset']{
+	background:var(--color-header);
+	border:none;
+	color:var(--color-font);
+	padding:0.8rem ;
+	font-size:0.8rem;
+	width:10vw;
+}
+.btn_adicionais input[type='reset']{
+	background:#931515;
+}
+.titulo_container{
+	padding:20px 0px;
+}
+.style_login{
+	width:480px;
+	box-shadow:1px 1px 1px 1px #eee;	
+	background:var(--color-font);
+	padding:20px 10px;
+}
+.style_login input{
+	padding:0.6rem;
+}
+.style_login input[type='submit']{
+	padding: 0.6rem;
+}
+.validação li{
+	font-size:1rem;
+}
+.mensagem_valida a{
+	font-size:1rem;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 35%;
+    height:20%;
+}
+.indentificação_login img{
+	max-width:10rem;
+}
+.noticias{
+	padding:20px 20px;
+}
+.noticias  p,span{
+	font-size:1rem;
+	text-align:justify;
+}
+
+.noticias h3{
+	font-size:1rem;
+	font-weight:inherit;
+	color:var(--color-header);
+	line-height:2rem;
+}
+.noticias img{
+	max-width:8rem;
+}
+.noticias span{
+	line-height:2rem;
+	font-size:0.8rem;
+	font-weight:bold;
+	color:var(--color-header);
+}
+}

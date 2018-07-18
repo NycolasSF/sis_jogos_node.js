@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title><%=Titulo%></title>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon .ico">
+    <link rel="stylesheet" type="text/css" href="styles/estilo.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  </head>
+  <body>
+    <header>
+      <div class="logo_principal">
+        <img src="img/logo.png">
+      </div>
+      <div class="indentificação_login">
+         <img id="opener" src="img/sair.png">
+      </div>
+    </header>
+    <main>
+      <section>
+         <div class="menu_icon">
+           <img src="img/icon_menu.png" id="menu">
+          </div>
+        <div class="menu" id="ul_menu">
+          <nav>
+              <ul>
+                <li><a id="btn_painel">Painel Geral</a></li>
+                <li><a id="btn_disputas">Disputas Finalizadas</a></li>
+                <li><a id='btn_boletim'>Boletim Noticias</a></li>
+                <li><a id='btn_modalidades'>Modalidades</a></li>
+                <li><a href="/altletas/inscrever">Inscrições Atletas</a></li>
+                <li><a href="/Entrar/recurso">Solicitar revisão de partida</a></li>
+              </ul>
+          </nav>
+      </div>
+    </section>
+    <div class="invisivel">
+       <div id="dialog-confirm"  title=" Turma <%=lider_turma%> Encerrar sessão">
+    <p><%=Lider%> , Deseja finalizar sua sessão ?</p>
+    </div>
+    <div id="dialog-message" title="Finalizar solicitação">
+      <p>
+        Solicitação  Cancelada !!!
+      </p>
+    </div>
+    </div>
+   
+    <section class="boletim " id="boletim">
+       <div class="titulo_container">
+         <h1>Boletim noticias</h1>
+       </div>
+       <div class="noticia">
+         <%for(var i = 0;i<noticias.length;i++){%>
+              <div class="noticias">
+                  <div class="foto_noticias">
+                    <img src="<%=noticias[i].img_noticia%>">
+                  </div>
+                  <div class="informação_noticia">
+                    <div>
+                      <h3><%=noticias[i].titulo_noticia%></h3>
+                      <p><%=noticias[i].desc_noticia%></p>
+                      <span>Postado em :<%=noticias[i].data_noticia%></span>
+                    </div>
+                  </div>
+              </div>
+         <%}%>
+       </div>
+    </section>
+    <section class="modalidades" id="modalidades">
+        <div class="titulo_container">
+            <h1>Informações sobre modalidade</h1>
+         </div>
+         <div>
+            <%if(modalidades.length>0){%>
+              <table>
+            <tr>
+              <th>Modalidade</th>
+              <th>Equipes por modalidade</th>
+              <th>Quantidade de pessoas por equipe</th>
+              <th>Masculino</th>
+              <th>Feminino</th>
+              <th>Misto</th>
+            </tr>
+            <%for(var i = 0; i<modalidades.length;i++){%>
+            <tr>
+              <td><%=modalidades[i].nome_modalidade%></td>
+              <td><%=modalidades[i].total_equipe%></td>
+              <td><%=modalidades[i].qtd_pessoa%></td>
+              <td><%=modalidades[i].masculino%></td>
+              <td><%=modalidades[i].feminino%></td>
+              <td><%=modalidades[i].misto%></td>
+            </tr>
+            <%}%>
+          </table>  
+          <%}%>
+           <%if(modalidades.length==0){%>
+             <div class="mensagem_valida">
+               <a>Não há informações</a>
+             </div>
+            <%}%>
+         </div>
+    </section>
+    <section class="painel" id="painel">
+      <div>
+         <div class="titulo_container">
+            <h1>Dados Gerais</h1>
+         </div>
+          <div class="dados_painel">
+              <div class="dados"><h2>Atletas Cadastrados: <%=dados.length%></h2></div>
+              <div class="dados"><h2>Modalidades Disputadas: <%=pontuações.length%></h2></div>
+              <div class="dados"><h2>Pontuação Total: <%=pontuação%> pontos</h2></div>
+               <div class="dados"><h2>Recursos: <%=recursos.length%> solicitado</h2></div>
+          </div>
+          <div class="titulo_container">
+            <h1>Atletas inscrito</h1>
+         </div>
+         <div>
+          <%if(dados.length>0){%>
+              <table>
+            <tr>
+              <th>Aluno</th>
+              <th>Matricula (RA)</th>
+              <th>Turma</th>
+              <th>Modalidade</th>
+            </tr>
+            <%for(var i = 0; i<dados.length;i++){%>
+            <tr>
+              <td><%=dados[i].nome_aluno%></td>
+              <td><%=dados[i].RA%></td>
+              <td><%=dados[i].nome_turma%></td>
+              <td><%=dados[i].nome_modalidade%></td>
+            </tr>
+            <%}%>
+          </table>  
+          <%}%>
+           <%if(dados.length==0){%>
+             <div class="mensagem_valida">
+               <a>Não há altletas cadastrados</a>
+             </div>
+            <%}%>
+         </div>
+         <div class="titulo_container">
+            <h1>Pontuação modalidades disputadas</h1>
+         </div>
+         <div>
+        <%if(pontuações.length>0){%> 
+          <table>
+            <tr>
+              <th>Modalidade</th>
+              <th>Arbitragem</th>
+              <th>Data Finalização</th>
+              <th>Pontuação</th>
+            </tr>
+            <%for(var i = 0; i<pontuações.length;i++){%>
+            <tr>
+              <td><%=pontuações[i].nome_modalidade%></td>
+              <td><%=pontuações[i].nome_integrante_organização%></td>
+              <td><%=pontuações[i].data_disputada%></td>
+              <td><%=pontuações[i].pontuação %></td>
+            </tr>
+             <%}%>
+          </table>  
+          <%}%>
+           <%if(pontuações.length==0){%>
+             <div class="mensagem_valida">
+               <a>Não há pontuações registradas</a>
+             </div>
+            <%}%>
+         </div>
+           <div class="titulo_container">
+            <h1>Recursos solicitado por turma</h1>
+         </div>
+         <div>
+          <%if(recursos.length>0){%> 
+          <table>
+            <tr>
+              <th>Solicitante</th>
+              <th>Horario Solicitação</th>
+              <th>Modalidade Envolvida</th>
+              <th>Situação</th>
+            </tr>
+              <%for(var i = 0; i<recursos.length;i++){%>
+            <tr>
+              <td><%=recursos[i].nome_completo%></td>
+              <td><%=recursos[i].horario_recurso%></td>
+              <td><%=recursos[i].modalidade%></td>
+              <td><%=recursos[i].situação %></td>
+              <%}%>
+          </table>  
+          <%}%>
+           <%if(recursos.length==0){%>
+             <div class="mensagem_valida">
+               <a>Não há recursos solicitados</a>
+             </div>
+            <%}%>
+          </table>
+         </div>
+      </div>
+    </section>
+    <section class="disputas" id="disputas">
+       <div class="titulo_container">
+          <h1>Modalidades disputas</h1>
+       </div>
+        <%for(var i = 0; i<pontuações.length;i++){%>
+         <div class="disputas_registrada">
+           <div class="titulo_container">
+              <h1>Modalidades: <%=pontuações[i].nome_modalidade%></h1>
+           </div>
+           <ul>
+             <li>Horário Disputa <%=pontuações[i].data_disputada%></li>
+             <li>Arbitro: <%=pontuações[i].nome_integrante_organização %></li>
+             <li>Turma concorrente: <%=pontuações[i].adversario_turma%></li>
+             <li>Relatorio do jogo:<%=pontuações[i].relatorio_jogo%></li>
+           </ul>
+       </div>
+       <%}%>
+       <%if(pontuações.length == 0){%>
+        <div class="mensagem_valida">
+          <a>Não há partidas realizadas</a>
+        </div>
+      <%}%>
+    </section>
+    </main>
+     <script>
+  
+  </script>
+    <script type="text/javascript" src="js/funções.js"></script>
+    <script type="text/javascript" src="js/exibição.js"></script>
+  </body>
+</html>

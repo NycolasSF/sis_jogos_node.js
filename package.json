@@ -1,0 +1,24 @@
+{
+  "name": "Sistema",
+  "version": "1.0.0",
+  "description": "Sistema de gerenciamentos de evento esportivo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marcos Lopes Gonçalves",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2 ",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.1.2",
+    "mysql": "^2.15.0",
+    "nodemailer": "^4.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4"
+  }
+}

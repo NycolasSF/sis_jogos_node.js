@@ -1,0 +1,150 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title><%=Titulo%></title>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon .ico">
+    <link rel="stylesheet" type="text/css" href="styles/estilo.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo_principal">
+        <img src="img/logo.png">
+      </div>
+       <div class="indentificação_login">
+         <img id="opener" src="img/sair.png">
+      </div>
+    </header>
+    <main>
+       <div class="invisivel">
+       <div id="dialog-confirm"  title="Arbitragem Encerrar sessão">
+    <p><%=arbitro%> , Deseja finalizar sua sessão ?</p>
+    </div>
+    <div id="dialog-message" title="Finalizar solicitação">
+      <p>
+        Solicitação  Cancelada !!!
+      </p>
+    </div>
+    </div>
+      <section>
+         <div class="menu_icon">
+           <img src="img/icon_menu.png" id="menu">
+          </div>
+        <div class="menu" id="ul_menu">
+          <nav>
+              <ul>
+                <li><a id="btn_painel">Registrar Disputas</a></li>
+                <li><a id="btn_disputas">Disputas Enviadas</a></li>
+              </ul>
+          </nav>
+      </div>
+    </section>
+    <section class="painel" id="painel">
+      <div> 
+          <div class="titulo_container">
+            <h1>Relatorio de disputa</h1>
+         </div>
+           <form action="/salvar/arbitro/disputa" method="post">
+             <div class="container-input">
+               <label>Arbitragem:</label>
+               <select name="arbitro">
+                 <option value="<%=id_arbitro%>"><%=arbitro%></option>
+               </select>
+             </div>
+             <div class="container-input">
+               <label>Turma Adversaria(Turma Derrotada):</label>
+               <select name="adv">
+                <option>Selecione Turma</option>
+                <%for(var i = 0; i<turma.length;i++){%>
+                   <option> <%=turma[i].nome_turma%></option>
+                 <%}%>  
+               </select>
+             </div>
+             <div class="container-input">
+               <label>Pontuação na partida(Equipe vencedora):</label>
+               <input type="number" name="pontuação" placeholder="Digite informações">
+             </div>
+             <div class="container-input">
+               <label>Data finalizaçao disputa:</label>
+               <input type="date" name="date">
+             </div>
+             <div class="container-input">
+               <label>Modalidade:</label>
+               <select name="modalidade">
+                <option>Selecione modalidade</option>
+                <%for(var i = 0; i< modalidades_disponiveis.length;i++){%>
+                   <option value="<%=modalidades_disponiveis[i].id_modalidade%>" > <%=modalidades_disponiveis[i].nome_modalidade%></option>
+                 <%}%>  
+               </select>
+             </div>
+             <div class="container-input">
+               <label>Turma Vencedora:</label>
+               <select name="Turma">
+                <option>Selecione Turma</option>
+                <%for(var i = 0; i<turma.length;i++){%>
+                   <option value="<%=turma[i].id_turma%>" > <%=turma[i].nome_turma%></option>
+                 <%}%>  
+               </select>
+             </div>
+             <div class="container-input">
+               <label>Relatorio da disputa:</label>
+               <textarea name="text"></textarea>
+              </div> 
+             <div class="btn_adicionais">
+               <div class="container-input">
+               <input type="submit" value="Enviar">
+             </div>
+             <div class="container-input">
+               <input type="reset" value="Limpar">
+             </div>
+             </div> 
+           </form>
+            <div class="validação">
+            <%for (var i = 0; i < validacao.length; i++) {%>
+            <ul >
+              <li><%=validacao[i].msg %></li>
+            </ul>
+            <%}%>
+          </div>
+         </div> 
+       </section>
+        <section id="disputas" class='disputas'>
+        <div class="titulo_container">
+            <h1>Recursos lançados</h1>
+         </div>
+         <div>
+          <%if(pontuações.length>0){%> 
+          <table>
+            <tr>
+              <th>Modalidade</th>
+              <th>Arbitragem</th>
+              <th>Data Finalização</th>
+              <th>Pontuação</th>
+            </tr>
+            <%for(var i = 0; i<pontuações.length;i++){%>
+            <tr>
+              <td><%=pontuações[i].nome_modalidade%></td>
+              <td><%=pontuações[i].nome_integrante_organização%></td>
+              <td><%=pontuações[i].data_disputada%></td>
+              <td><%=pontuações[i].pontuação %></td>
+            </tr>
+             <%}%>
+          </table>  
+          <%}%>
+           <%if(pontuações.length==0){%>
+             <div class="mensagem_valida">
+               <a>Não há pontuações registradas</a>
+             </div>
+            <%}%>
+         </div>
+    </section>
+    </main>
+     <script type="text/javascript" src="js/exibição.js"></script>
+     <script type="text/javascript" src="js/funções.js"></script>
+  </body>
+</html>
